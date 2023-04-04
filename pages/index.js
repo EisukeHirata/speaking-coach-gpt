@@ -57,7 +57,7 @@ const Home = () => {
     e.preventDefault();
     setLoading(true);
     setIsRecording(false);
-
+    console.time("Whisper API");
     const whisperResponse = await fetch("/api/whisper", {
       method: "POST",
       headers: {
@@ -65,11 +65,12 @@ const Home = () => {
       },
       body: JSON.stringify({ audio: audio }),
     });
+    console.timeEnd("Whisper API");
 
     const whisperData = await whisperResponse.json();
 
     setTranscript(whisperData.modelOutputs[0].text);
-
+    console.time("Generate API");
     const generateResponse = await fetch("/api/generate", {
       method: "POST",
       headers: {
@@ -77,6 +78,7 @@ const Home = () => {
       },
       body: JSON.stringify(whisperData.modelOutputs[0].text),
     });
+    console.timeEnd("Generate API");
 
     const generateData = await generateResponse.json();
     setFeedback(generateData.output);
@@ -93,23 +95,23 @@ const Home = () => {
 
       <div className={styles.banner}>
         <p>
-          Next.js template available on{" "}
+          Follow me on{" "}
           <a
-            href="https://github.com/zahidkhawaja/whisper-nextjs"
+            href="https://twitter.com/EisukeHirata"
             target="_blank"
             rel="noopener noreferrer"
           >
-            GitHub
+            Twitter
           </a>
         </p>
       </div>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Whisper 🤫</h1>
+        <h1 className={styles.title}>Speaking Coach GPT</h1>
 
         <p className={styles.description}>
           {" "}
-          Record audio to generate a transcript.{" "}
+          Record your English and give you feedback{" "}
         </p>
         {isRecording ? (
           <p className={styles.warning}> Recording in progress... </p>
@@ -169,16 +171,21 @@ const Home = () => {
       </main>
 
       <footer className={styles.footer}>
-        <a
-          href="https://www.banana.dev/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <span className={styles.logo}>
-            <Image src="/banana.svg" alt="Banana Logo" width={72} height={16} />
-          </span>
-        </a>
+        <div className="bmc-btn-container">
+          <a
+            href="https://www.buymeacoffee.com/aghirata"
+            target="_blank"
+            className="bmc-btn"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+              alt="Buy me a coffee"
+              width="150"
+              height="50"
+            />
+          </a>
+        </div>
       </footer>
     </div>
   );
