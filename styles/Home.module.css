@@ -64,21 +64,24 @@
   flex-direction: column;
 }
 
-.recordbutton, .stopbutton {
+.recordbutton,
+.stopbutton {
   width: 9rem;
   border: none;
   border-radius: 10px;
   padding: 10px;
   font-size: 1.25rem;
   margin: 10px;
-  color: #3B3B3B;
+  color: #3b3b3b;
 }
 
-.recordbutton:enabled, .stopbutton:enabled {
+.recordbutton:enabled,
+.stopbutton:enabled {
   background: white;
 }
 
-.recordbutton:hover, .stopbutton:hover {
+.recordbutton:hover,
+.stopbutton:hover {
   opacity: 0.9;
 }
 
@@ -109,6 +112,7 @@
 
 .loading p {
   width: 60%;
+  margin: 0 auto;
 }
 
 .generatebuttonroot {
@@ -118,7 +122,7 @@
 
 .generatebutton {
   background-color: #61e3a6;
-  color: #3B3B3B;
+  color: #3b3b3b;
   border: none;
   width: 10rem;
   font-size: 1.25rem;
@@ -131,7 +135,7 @@
   opacity: 0.9;
 }
 
-.image { 
+.image {
   width: 250px;
   height: 250px;
   position: relative;
