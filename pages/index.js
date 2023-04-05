@@ -88,8 +88,11 @@ const Home = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>OpenAI Whisper Demo</title>
-        <meta name="description" content="OpenAI Whisper Next.js Template" />
+        <title>Speaking Coach GPT</title>
+        <meta
+          name="description"
+          content="Speaking Coach GPT.Record your English and give you feedback"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
